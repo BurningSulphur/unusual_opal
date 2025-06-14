@@ -25,6 +25,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
+import static net.mariu73.opalescence.item.ModCreativeModeTabs.OPALESCENCE_TAB;
 import static net.minecraft.world.item.Items.registerBlock;
 import static net.minecraft.world.level.block.Blocks.RAW_COPPER_BLOCK;
 
@@ -54,8 +55,6 @@ public class UnusualOpal
             .alwaysEat().nutrition(1).saturationMod(2f).build())));
 */
 
-    public static final RegistryObject<Block>TEST_BLOCK = BLOCKS.register("test_block", () -> new Block(BlockBehaviour.Properties.copy(RAW_COPPER_BLOCK).mapColor(MapColor.DIAMOND).requiresCorrectToolForDrops().strength(5f, 6f).sound(SoundType.CALCITE)));
-    public static final RegistryObject<Item> TEST_BLOCK_ITEM = ITEMS.register("test_block", () -> new BlockItem(TEST_BLOCK.get(), new Item.Properties()));
 
     public static final RegistryObject<Block> OPAL_FOSSIL_BLOCK = BLOCKS.register("opal_fossil_block",
             () -> new OpalBlock(BlockBehaviour.Properties
@@ -88,11 +87,15 @@ public class UnusualOpal
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+
     }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if (event.getTab() == OPALESCENCE_TAB.get()) {
+            event.accept(OPAL_FOSSIL_BLOCK_ITEM.get());
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

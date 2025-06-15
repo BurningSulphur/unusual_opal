@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "O O",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "unusualprehistory:palaeo_skin"
+    },
+    "O": {
+      "item": "opalescence:opal_crystal"
+    }
+  },
+  "result": {
+    "item": "unusualprehistory:shedscale_boots"
+  }
+}

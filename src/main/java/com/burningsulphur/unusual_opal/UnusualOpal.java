@@ -1,6 +1,7 @@
 package  com.burningsulphur.unusual_opal;
 
 import com.mojang.logging.LogUtils;
+import com.peeko32213.unusualprehistory.core.registry.UPBlocks;
 import net.mariu73.opalescence.block.OpalBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -25,7 +26,17 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
+import com.peeko32213.unusualprehistory.core.registry.UPItems;
+import com.peeko32213.unusualprehistory.core.registry.UPBlocks;
+
+import static com.peeko32213.unusualprehistory.core.registry.UPBlocks.OPAL_BLOCK;
+
+
+
 import static net.mariu73.opalescence.item.ModCreativeModeTabs.OPALESCENCE_TAB;
+import static com.peeko32213.unusualprehistory.core.registry.UPTabs.UP_TAB;
+
 import static net.minecraft.world.item.Items.registerBlock;
 import static net.minecraft.world.level.block.Blocks.RAW_COPPER_BLOCK;
 
@@ -90,12 +101,24 @@ public class UnusualOpal
 
     }
 
-    // Add the example block item to the building blocks tab
+
+
+
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if (event.getTab() == OPALESCENCE_TAB.get()) {
             event.accept(OPAL_FOSSIL_BLOCK_ITEM.get());
         }
+        if (event.getTab() == UP_TAB.get()) {
+            event.accept(OPAL_FOSSIL_BLOCK_ITEM.get());
+        }
+
+        //removing items
+        event.getEntries().remove(UPItems.OPAL_CHUNK.get().getDefaultInstance());
+        event.getEntries().remove(UPBlocks.DEEPSLATE_OPAL_FOSSIL.get().asItem().getDefaultInstance());
+        event.getEntries().remove(UPBlocks.STONE_OPAL_FOSSIL.get().asItem().getDefaultInstance());
+        event.getEntries().remove(UPBlocks.OPAL_BLOCK.get().asItem().getDefaultInstance());
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

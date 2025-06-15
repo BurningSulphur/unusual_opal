@@ -27,7 +27,7 @@ public class BlockColourRegisterEvent {
                 UPItems.OPAL_FOSSIL.get(),
                 UPItems.OPALESCENT_PEARL.get(),
                 UPItems.OPALESCENT_SHURIKEN.get(),
-                UPItems.OPAL_CHUNK.get()
+                UPItems.OPAL_CHUNK.get() // is removed tbf
         );
     }
 }
